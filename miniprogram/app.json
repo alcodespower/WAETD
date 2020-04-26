@@ -1,9 +1,11 @@
 {
   "pages": [
-    "pages/landg/landg",
     "pages/dbtest/dbtest",
-    "pages/homepage/homepage",
     "pages/login/login",
+    "pages/landg/landg",
+    
+    "pages/homepage/homepage",
+    
     "pages/homepage/newsdetail"
   ],
   "window": {
