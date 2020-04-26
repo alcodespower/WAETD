@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/landg/landg",
+    "pages/dbtest/dbtest",
+    "pages/homepage/homepage",
+    "pages/login/login",
+    "pages/homepage/newsdetail"
+  ],
+  "window": {
+    "backgroundColor": "#f9f9f9",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "ETD",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "./components/cu-custom/cu-custom",
+    "skeleton": "./components/skeleton/skeleton"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

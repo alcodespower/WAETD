@@ -1,0 +1,55 @@
+/* pages/login/login.wxss */
+
+page {
+  background-color: rgba(232, 232, 232, 1);
+}
+
+.info_box {
+  position: absolute;
+  top: 30Vh;
+  width: 100%;
+  height: 10Vh;
+  /* border: 1px solid red; */
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.avatar_box {
+  background-image: url(https://6574-etd-lxra1-1301840515.tcb.qcloud.la/ETD/images/bg_mypage_hd_6.jpg?sign=a81ca6673589456b3ec7970ebecfa25c&t=1587189904);
+  background-size: cover;
+  height: 30Vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 40rpx;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.avatar_box text {
+  opacity: 0.8;
+  color: black;
+}
+
+.avatar_box image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.avatar_box .gif-wave {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  mix-blend-mode: screen;
+  height: 100rpx;
+}
+
+.avatar_img {
+  border-radius: 50% 50%;
+  border:2px solid rgba(0, 0, 0, 0.3);
+}

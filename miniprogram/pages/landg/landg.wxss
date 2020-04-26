@@ -1,0 +1,69 @@
+/* pages/landg/landg.wxss */
+page{
+  height: 100Vh;
+  /* overflow: hidden; */
+  /* margin-bottom: 50px; */
+}
+.box_container{
+  /* margin-top: 50px; */
+  /* overflow: hidden; */
+  height: 100%;
+  /* border:1px solid red; */
+}
+.box_header{
+  /* height: 15Vh; */
+  /* margin: 0 15vw; */
+  /* background-color: grey;
+  background-image: url('https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3713698600,2214216209&fm=26&gp=0.jpg');
+  background-size: cover;
+  background-repeat: no-repeat; */
+
+  /* overflow: hidden; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -99;
+  
+}
+.box_header image{
+  width: 100vw;
+}
+
+/* demo.wxss */
+.life-container {
+  width: 350rpx !important;
+  padding: 0 0 20rpx 0 !important;
+  background-color: #fff !important;
+  box-shadow: 0px 8rpx 20rpx 0px rgba(9, 36, 66, 0.04) !important;
+  border-radius: 16rpx !important;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
+.life-img {
+  width: 350rpx !important;
+  height: 380rpx !important;
+}
+
+.life-product-contianer {
+  padding: 0 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.life-title {
+  margin-left: 10rpx !important;
+}
+
+.tag {
+  height: 30rpx !important;
+  line-height: 30rpx !important;
+}
+
+.art-content {
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 15rpx;
+  display: flex;
+  flex-wrap: wrap;
+}

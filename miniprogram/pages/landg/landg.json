@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "found":"/components/found/found",
+    "l-water-flow": "/dist/water-flow/index",
+    "content-title": "/components/content-title/index"
+    
+  }
+}
