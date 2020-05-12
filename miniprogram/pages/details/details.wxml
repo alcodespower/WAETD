@@ -1,0 +1,57 @@
+<!--pages/details/details.wxml-->
+<cu-custom isBack="{{!isshow_login}}">
+  <view slot="backText" class="text-white" hidden="{{isshow_login}}">返回</view>
+</cu-custom>
+
+<image class="content_url_img animated bounceInDown" src='{{  click_info.content_url  }}' mode="aspectFill" style="position:fixed;top:0;left:0;z-index:-999;"></image>
+<view style="position:fixed;top:60Vh;left:0;">
+  <view class="user_avatar_box animated bounceInRight">
+    <image src="{{  click_info.face_url  }}" class="avatar_set shadow-lg" mode="aspectFit" />
+  </view>
+
+  <view class="header_info flex margin-top-lg animated bounceInLeft">
+    <view class="text-xl text-bold margin-lr-sm">{{ click_info.goods_title }}<text class="text-sm text-gray">  (伊洛星球第 #{{click_info.id}} 位住户)</text></view>
+    
+  </view>
+  <view class="content margin-top padding-lr-lg animated bounceInRight">
+    <view class="text-df" style="text-indent: 40rpx;">
+      <text class="text-df text-bold">发布者：</text>{{ click_info.username }}
+    </view>
+    <view class="text-df" style="text-indent: 40rpx;">
+     <text class="text-df text-bold">发布时间：</text>{{ click_info.date }}
+    </view>
+    <view class="text-df" style="text-indent: 40rpx;">
+      <text class="text-df text-bold">内容说明：</text>{{ click_info.content==''?'这个人很懒啥都没有留下~':click_info.content }}
+    </view>
+    <view class="text-df" style="text-indent: 40rpx;">
+      <text class="text-df text-bold">详细地址：</text>{{ click_info.miss_place==''?'这个人很懒,并没有写明地点哦~':click_info.miss_place }}
+    </view>
+  </view>
+  <view class="phone_box shadow" style="position:fixed;bottom:0;" bindtap="{{isWAETDER==true?'':'showlogin'}}">
+    <view class="phone_num text-lg">
+      <!-- <text class="text-blue" style="font-weight:bold">联系方式：</text>{{ phone.toHide(click_info.contact) }} -->
+      <text class="text-blue" style="font-weight:bold">联系方式：</text>{{ phone_isshow?click_info.contact:phone_hidden }}
+    </view>
+  </view>
+</view>
+
+<view class="model_zfjw shadow flex radius" hidden="{{!isshow_login}}">
+  <view class="login_box animated swing">
+    <view class="bg_img_box"></view>
+    <view class="control_box">
+      <form bindsubmit="user_confirm">
+        <view class="cu-form-group login_input margin-top-sm" style="border-top:none;border-bottom:1rpx solid #eee;">
+          <view class="title">账号</view>
+          <input placeholder="{{  user_confirm==''?'您的学号/职工编号':user_confirm.zf_id  }}" name="zf_id"></input>
+        </view>
+
+        <view class="cu-form-group login_input margin-top-sm" style="border-top:none;border-bottom:1rpx solid #eee;">
+          <view class="title">密码</view>
+          <input placeholder="您的教务系统密码" name="zf_passwd"></input>
+        </view>
+        <button class="cu-btn bg-blue lg margin-top-xl" form-type="submit" style="width:60%;margin-left:20%;">提交</button>
+        <button class="cu-btn bg-red lg margin-top-sm" style="width:60%;margin-left:20%;" bindtap="hidelogin">取消</button>
+      </form>
+    </view>
+  </view>
+</view>

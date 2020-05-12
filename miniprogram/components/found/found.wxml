@@ -1,9 +1,9 @@
-<l-card full type="cover" image="{{data.image}}" title="{{data.title}}" l-class="life-container" l-img-class="life-img " l-title-class="life-title" bindtap="onProduct" image-mode="aspectFill">
+<l-card full type="cover" image="{{data.content_url}}" title="{{data.goods_title}}" l-class="life-container" l-img-class="life-img " l-title-class="life-title" bindtap="onProduct" image-mode="aspectFill">
   <view class='life-product-contianer'>
-    <view class='art-content'>{{data.describe}}</view>
+    <view class='art-content'>{{data.content}}</view>
     <view style="display:flex;justify-content:flex-end;">
-      <l-tag shape="circle" size="mini" type="reading" bg-color="#8dc63f" font-color="#2a53cd" plain="{{true}}" style="margin-right:10rpx;" l-select-class="select">待认领</l-tag>
-      <l-tag shape="circle" size="mini" type="reading" bg-color="#8dc63f" font-color="#8dc63f" plain="{{true}}">2020-03-20
+      <l-tag shape="circle" size="mini" type="reading" font-color="{{data.goods_c==1?'#9f009a':'red'}}" plain="{{true}}" style="margin-right:10rpx;" l-select-class="select">{{data.goods_c==1?'拾获寻主':'丢失在找'}}</l-tag>
+      <l-tag shape="circle" size="mini" type="reading" bg-color="#8dc63f" font-color="#8dc63f" plain="{{true}}">{{  data.date  }}
       </l-tag>
 
     </view>

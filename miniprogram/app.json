@@ -1,12 +1,10 @@
 {
   "pages": [
-    "pages/dbtest/dbtest",
-    "pages/login/login",
+    
     "pages/landg/landg",
-    
-    "pages/homepage/homepage",
-    
-    "pages/homepage/newsdetail"
+    "pages/details/details",  
+    "pages/mypassage/mypassage",
+    "pages/userhome/userhome"
   ],
   "window": {
     "backgroundColor": "#f9f9f9",

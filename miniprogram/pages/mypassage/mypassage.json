@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "l-dialog": "/dist/dialog/index",
+    "l-toast":"/dist/toast/index",
+    "l-message": "/dist/message/index"
+  }
+}

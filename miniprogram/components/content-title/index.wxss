@@ -1,4 +1,4 @@
-page{
+page {
   background-color: #f3f3f3;
 }
 
@@ -7,7 +7,7 @@ page{
   flex-direction: column;
   align-items: center;
   background: transparent;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   padding-bottom: 160rpx;
 }
 
@@ -34,10 +34,10 @@ page{
   color: rgba(140, 152, 174, 1);
   line-height: 24rpx;
   margin-top: 6rpx;
-  margin-bottom: 22rpx
+  margin-bottom: 22rpx;
 }
 
-.doc-container{
+.doc-container {
   position: fixed;
   right: 40rpx;
   bottom: 60rpx;
@@ -45,20 +45,25 @@ page{
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
-  box-shadow:0px 3px 8px 0px rgba(155,193,185,0.5);
+  box-shadow: 0px 3px 8px 0px rgba(155, 193, 185, 0.5);
   display: flex;
   justify-content: center;
   background-color: #fff;
   align-items: center;
 }
 
-.doc-img{
+.doc-img {
   width: 50rpx;
-  height:50rpx;
+  height: 50rpx;
 }
 
-.doc-txt{
+.refresh-img {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.doc-txt {
   font-size: 28rpx;
-  color: #3963BC;
+  color: #3963bc;
   margin-top: 15rpx;
 }

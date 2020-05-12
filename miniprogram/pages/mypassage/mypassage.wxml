@@ -1,0 +1,45 @@
+<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+  <view slot="content">
+    <view class="text-cut radius text-bold" style="width:300rpx">我的发布</view>
+    <!-- <image src="https://6675-functio-90c82c-1258888338.tcb.qcloud.la/ETD/img/ETD.png?sign=7e66435b63c8491cfe945ee47c52fab1&t=1586781717" mode="widthFix" alt="ETD"> </image> -->
+  </view>
+  <view slot="backText">返回</view>
+</cu-custom>
+<block wx:for="{{  one_all_message  }}">
+  <view class="cu-card case {{isCard?'no-card':''}}">
+    <view class="cu-item shadow">
+      <view class="image">
+        <image src="{{  item.content_url  }}" mode="aspectFill"></image>
+        <view class="cu-tag bg-{{  item.goods_c==0?'red':'blue'}}">#{{ item.id }} - {{ item.goods_c==0?'丢失在找':'拾获寻主' }}</view>
+        <view class="cu-bar bg-shadeBottom">
+          <text class="text-cut">{{  item.content  }}</text>
+        </view>
+      </view>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url({{  item.face_url  }});"></view>
+          <view class="content flex-sub">
+            <view class="text-grey">{{ item.username }}</view>
+            <view class="text-gray text-sm flex justify-between">
+              {{ item.date }}
+              <!-- <view class="text-gray text-sm">
+                <text class="icon-appreciatefill margin-lr-xs"> {{ item.total_likes }}</text>
+              </view> -->
+              <view class="text-gray text-sm " bindtap="delete_message" data-messageid="{{item.id}}">
+                <view class="round flex justify-center solids bg-red shadow" style="height:20px;width:50px;">
+                  <view>删除</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</block>
+
+<l-dialog show="{{delete_message}}" type="confirm" show-title="{{false}}" title="标题" content="确认删除？" bind:linconfirm="confirm_delete" />
+
+<l-dialog show="{{delete_success}}" type="alert" show-title="{{false}}" title="标题" content="已删除" />
+

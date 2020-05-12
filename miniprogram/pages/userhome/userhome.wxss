@@ -1,0 +1,71 @@
+/* pages/userhome/userhome.wxss */
+.user_avatar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.face_url{
+  border-radius: 50%;
+  width: 150rpx;
+  height: 150rpx;
+  position: fixed;
+  top:13Vh;
+  border:3px solid rgba(0, 0, 0, 0.3);
+}
+.nickname{
+  position: fixed;
+  top: 23Vh;
+  font-size: large;
+  font-weight: bold;
+}
+.list_part{
+  margin-top: 25Vh;
+}
+.wave_img{
+  position: fixed;
+  width: 100%;
+  top: 15Vh;
+  left: 0;
+  z-index: -99;
+  mix-blend-mode: screen;  
+  height: 100rpx;
+
+}
+
+
+.model_zfjw{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.384)
+}
+.bg_img_box{
+  margin-top: 20rpx;
+  width: 100%;
+  height: 40%;
+  background-image: url('https://6574-etd-lxra1-1301840515.tcb.qcloud.la/ETD/images/bg_login.jpg?sign=bbf08825182d6c84b5f055a7db13456c&t=1588704932');
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.control_box{
+  margin-top: 20rpx;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+.login_box{
+  margin-top: 15Vh;
+  margin-left: 10%;
+  width: 80%;
+  height: 70Vh;
+  background-color: white;
+  border-top:none;
+  border-radius: 5px;
+}

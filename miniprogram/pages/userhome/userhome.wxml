@@ -1,0 +1,76 @@
+<!--pages/userhome/userhome.wxml-->
+<cu-custom isBack="true">
+  <view slot="backText" class="text-white">返回</view>
+  <view slot="content">
+    <text style="color: white;font-weight: bold;">个人中心</text>
+  </view>
+</cu-custom>
+
+
+<image src="https://6574-etd-lxra1-1301840515.tcb.qcloud.la/ETD/images/bg_userhome.png?sign=ed1e4a5cc010625a4c1e2fc9e3c5fe9b&t=1588208527" style="height:100%;width:100%;position:fixed;top:0;left:0;z-index:-999;"></image>
+
+
+
+<view class="user_avatar shadow-warp">
+  <image  class="face_url" src="{{  face_url  }}" mode="asceptFit"></image>
+  <view class="nickname">{{ nickname }}</view>
+  <!-- <image class="wave_img" src="/images/wave.gif"></image> -->
+</view>
+
+
+<view class="cu-list menu sm-border card-menu margin-top list_part">
+  <view class="cu-item arrow">
+    <view class="content" bindtap='toMypassage'>
+      <text class="icon-circlefill text-black" ></text>
+      <text class="text-black" >我的发布</text>
+    </view>
+  </view>
+  <view class="cu-item arrow" bindtap="{{  isWAETD==true?'login_succeed':'showlogin'  }}" >
+    <view class="content">
+      <text class="icon-circlefill text-black"></text>
+      <text class="text-black" >身份认证</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <view class="content">
+      <text class="icon-circlefill text-black"></text>
+      <text class="text-black" bindtap="howtoPlay">玩转小程序</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <view class="content">
+      <text class="icon-circlefill text-black"></text>
+      <text class="text-black">联系我们</text>
+    </view>
+  </view>
+</view>
+
+<view class="weui-footer weui-footer_fixed-bottom">
+  <view class="weui-footer__links">
+    <navigator url="" class="weui-footer__link">WAETD</navigator>
+  </view>
+  <view class="weui-footer__text">Copyright © 2020-Forever iweb365.top</view>
+</view>
+
+
+
+<view class="model_zfjw shadow flex radius" hidden="{{!isshow_login}}">
+  <view class="login_box animated swing">
+    <view class="bg_img_box"></view>
+    <view class="control_box">
+      <form bindsubmit="user_confirm">
+        <view class="cu-form-group login_input margin-top-sm" style="border-top:none;border-bottom:1rpx solid #eee;">
+          <view class="title">账号</view>
+          <input placeholder="{{  user_confirm==''?'您的学号/职工编号':user_confirm.zf_id  }}" name="zf_id"></input>
+        </view>
+
+        <view class="cu-form-group login_input margin-top-sm" style="border-top:none;border-bottom:1rpx solid #eee;">
+          <view class="title">密码</view>
+          <input placeholder="您的教务系统密码" name="zf_passwd"></input>
+        </view>
+        <button class="cu-btn bg-blue lg margin-top-xl" form-type="submit" style="width:60%;margin-left:20%;">提交</button>
+        <button class="cu-btn bg-red lg margin-top-sm" style="width:60%;margin-left:20%;" bindtap="hidelogin">取消</button>
+      </form>
+    </view>
+  </view>
+</view>

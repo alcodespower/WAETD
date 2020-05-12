@@ -1,22 +1,97 @@
-<cu-custom isShowleft="true" bindtap="goTop" bgImage="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587576424521&di=c443c9fb3f791e48eeff20ba3a826f29&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F04%2F60%2F33%2F98586c9d54b5df4.jpg"
-  bind:myevent="onMyEvent">
+<cu-custom isShowleft="true" bindtap="goTop" bgImage="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588763358777&di=9093234cd5f9dd954e6148c2918b2849&imgtype=0&src=http%3A%2F%2Fimg.redocn.com%2Fsheying%2F20140902%2Fhaibianyouhua_2998245.jpg"
+  bind:myevent="onMyEvent" bind:showModal="showModal">
+  <!-- <cu-custom isShowleft="true" bindtap="goTop" bgColor="bg-black" bind:myevent="onMyEvent" bind:showModal="showModal"> -->
   <view slot="content">
     <text style="color: black;font-weight: bold;">LOST & FOUND</text>
   </view>
 </cu-custom>
+
+<!-- <view class="cu-bar search">
+  <view class="search-form round">
+    <text class="icon-search"></text>
+    <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search" class="bg-white"></input>
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-green shadow-blur round" style="min-height: 50rpx;width: 130rpx;">搜索</button>
+  </view>
+</view> -->
+
 <content-title name="招领中心" describe="FOUND">
   <l-water-flow generic:l-water-flow-item="found" />
 </content-title>
-<view catchtouchmove="NULL">
-  <view class="cu-modal drawer-modal justify-start {{isshow=='true'?'show':''}} " bindtap="closeleft">
-    <view class="cu-dialog basis-lg" catchtap style="background-image:url('https://6574-etd-lxra1-1301840515.tcb.qcloud.la/ETD/images/bg_left_bar.png?sign=86d66f53f0de3b8b48881f06e1e1c357&t=1587664389');background-size:cover; top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px);">
+
+
+<view catch:touchmoves>
+
+  <view class="cu-modal drawer-modal justify-start  {{isshow=='true'?'show':''}} " bindtap="closeleft">
+    <!-- 去掉show属性 -->
+    <view class="cu-dialog basis-lg" catch:touchmove style="ackground-image:url('https://6574-etd-lxra1-1301840515.tcb.qcloud.la/ETD/images/bg_left_bar.png?sign=86d66f53f0de3b8b48881f06e1e1c357&t=1587664389');background-size:cover; top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px);"
+      catchtap="none">
       <!-- <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:350rpx;border-radius:0 10px 10px 0;"> -->
-      <view class="cu-list menu text-left margin-top">
-        <view class="cu-item arrow" wx:for="{{left_list}}" wx:key="index" catchtouchmove='true'>
-          <view class="content">
-            <view>{{item}}</view>
+
+      <view class="cu-list menu text-left">
+        <view class="left_container">
+          <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588759773019&di=1dbc7c063f39a638a3c33a0411851fdb&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fbaike%2Fpic%2Fitem%2Fcf1b9d16fdfaaf517724bfde8d5494eef11f7a8f.jpg" style="position:fixed;top:0;left:0;z-index:-99;height:38Vh"></image>
+          <image src="/images/wave.gif" style="position:fixed;top:32Vh;left:0;z-index:-90;height:6Vh;mix-blend-mode: screen;" mode="scaleToFill"></image>
+          <view class="user_avatar_box">
+            <image src="{{  face_url  }}" class="avatar_set shadow-warp" mode="aspectFit">
+              <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" style="position:fixed;top:15Vh;z-index:999;background-color:rgba(255,255,255,.0001);height:200rpx;width:200rpx;"></button>
+            </image>
+          </view>
+          <view class="nickname margin-top-lg flex justify-center align-start  ">
+            <view class="text-cut text-xxl text-bold" style="width:50%;" wx:if="{{  nickname.length>4  }}">
+              {{ nickname }}
+            </view>
+            <view class=" text-xxl text-bold" wx:if="{{  nickname.length<4  }}">
+              {{ nickname }}
+            </view>
+            <view class="cu-tag {{  isWAETDER==true?'bg-green':'line-black' }} radius margin-left-sm sm shadow-warp">正方</view>
+            <view class="cu-tag bg-red round margin-left-sm sm shadow-blur">正式用户</view>
+            <!--  -->
+          </view>
+          <view class="info_box margin-top-lg margin-bottom-df  shadow-blur radius">
+            <view class="padding-sm">
+              <text class="text-df text-blue"><text decode="true" >&nbsp;&nbsp;&nbsp;&nbsp;</text>{{day_note.note}}</text>
+            </view>
+          </view>
+          <view class="margin-top-lg margin-bottom-df  shadow-blur radius">
+            <view class="padding-sm">
+              <text class="text-df text-orange"><text decode="true" >&nbsp;&nbsp;&nbsp;&nbsp;</text>{{day_note.content}}</text>
+            </view>
+          </view>
+          <view class="function_box shadow">
+
+            <audio class="shadow" src="{{day_note.tts}}" poster="{{day_note.picture}}" name="新版每日一句" author="WAETD" controls></audio>
+
+          </view>
+
+
+          <!-- <view class="function_box">
+            <text class="icon-homefill xl text-orange text-lg"> <text class="text-orange text-lg text-bold">个人中心</text></text>
+          </view> -->
+          <!-- <view class="cu-item arrow" style="background-color:{{  color_set?'':'rgba(255,255,255,.1)'  }};" wx:for="{{left_list}}" wx:key="index">
+          <view class="content" bindtap="select_{{index}}">
+            <view class="text-bold text-df">{{item}}</view>
+          </view>
+        </view> -->
+        </view>
+
+        <view class="cu-bar tabbar  bg-white foot ">
+          <view class="action text-gray" bindtap="toUserhome">
+            <view class="icon-my"></view>我的
+          </view>
+          <view class="action text-gray">
+            <view class="icon-settings"></view> 设置
+          </view>
+          <view class="action text-gray ">
+            <view class=" icon-magic">
+              <view class="cu-tag badge"></view>
+            </view>
+            关于
+
           </view>
         </view>
+
       </view>
     </view>
   </view>
@@ -28,126 +103,139 @@
 
 
 
-<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}} text-left">
-  <view class="cu-dialog radius" style="height:70Vh">
-    <view class="cu-bar bg-blue light">
-      <view class="action text-red" bindtap="hideModal">取消</view>
-      <view class="action text-green text-bold" bindtap="submit">确定</view>
+<view class="cu-modal bottom-modal  {{modalName=='bottomModal'?'show':''}} text-left">
+  <form bindsubmit="formsubmit">
+    <view class="cu-dialog radius" style="height:80Vh">
+      <view class="cu-bar bg-blue light">
+        <button class="cu-btn  bg-blue light" bindtap="hideModal">
+          <text class="text-red text_fail text-lg">取消</text>
+        </button>
+        <!-- <view class="action text-green text-bold align-right" bindtap="formsubmit">确定</view> -->
+        <button class="cu-btn bg-blue light" form-type="submit">
+          <text class="text-green text-bold text_sure text-lg">确定</text>
+        </button>
+      </view>
+      <view>
+        <scroll-view scroll-y style="height:65Vh;" catchtouchmove='true'>
+          <view style="padding:2Vh 0 3Vh 0;" cursor-spacing="200">
+            <view class="cu-bar bg-white margin-left margin-right radius">
+              <view class="action">
+                图片上传
+              </view>
+              <view class="action">
+                {{imgList.length}}/1
+              </view>
+            </view>
+            <view class="cu-form-group margin-left margin-right radius">
+              <view class="grid col-4 grid-square flex-sub">
+                <view class="padding-xs bg-img" style="background-image:url({{imgList[index]}})" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+                  <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                    <text class="icon-close"></text>
+                  </view>
+                </view>
+                <view class="padding-xs solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+                  <text class="icon-cameraadd"></text>
+                </view>
+              </view>
+            </view>
+            <view class="margin-left margin-right radius">
+              <view class="cu-form-group " cursor-spacing="200">
+                <textarea data-placeholder="详细描述" maxlength="-1" placeholder-class="placeholder" class="{{textareaAValue?'value':''}}" bindinput="textareaAInput"></textarea>
+              </view>
+
+            </view>
+            <view>
+              <view class="cu-form-group margin-left margin-right radius">
+                <text class="icon-locationfill text-orange"></text>
+                <view class="title">物品状态</view>
+                <picker bindchange="PickerChange" value="{{pick_index}}" range="{{picker}}">
+                  <view class="picker">
+                    {{pick_index?picker[pick_index]:'请选择'}}
+                  </view>
+                </picker>
+              </view>
+              <view class="cu-form-group margin-left margin-right radius">
+                <text class="icon-locationfill text-orange"></text>
+                <view class="title">物品名称</view>
+                <input placeholder="输入框带个图标" name="goods_title"></input>
+              </view>
+              <view class="cu-form-group margin-left margin-right">
+                <text class="icon-locationfill text-orange"></text>
+                <view class="title">丢失地点</view>
+                <input placeholder="大概丢失位置" name="miss_place"></input>
+              </view>
+              <view class="cu-form-group margin-left margin-right">
+                <text class="icon-locationfill text-orange"></text>
+                <view class="title">日期选择</view>
+                <picker mode="date" value="{{info_date}}" start="2020-01-01" end="2020-09-01" bindchange="DateChange">
+                  <view class="picker">
+                    {{info_date}}
+                  </view>
+                </picker>
+              </view>
+
+
+              <view class="cu-form-group margin-left margin-right radius">
+                <text class="icon-locationfill text-orange"></text>
+                <view class="title">时间选择</view>
+                <picker mode="time" value="{{info_time}}" start="00:00" end="23:59" bindchange="TimeChange">
+                  <view class="picker">
+                    {{info_time}}
+                  </view>
+                </picker>
+              </view>
+
+              <view class="cu-form-group  margin-left margin-right margin-bottom radius">
+                <text class="icon-locationfill text-orange"></text>
+                <view class="title">手机号码</view>
+                <input placeholder="常用手机号" name="contact"></input>
+                <view class="cu-capsule radius">
+                  <view class="cu-tag bg-blue radius">
+                    +86
+                  </view>
+                </view>
+              </view>
+            </view>
+
+
+          </view>
+        </scroll-view>
+      </view>
+
+
+
     </view>
-    <view>
-      <scroll-view scroll-y style="height:65Vh;" catchtouchmove='true'>
-        <view style="padding:2Vh 0 3Vh 0;" cursor-spacing="200">
-          <view class="cu-bar bg-white margin-left margin-right radius">
-            <view class="action">
-              图片上传
-            </view>
-            <view class="action">
-              {{imgList.length}}/4
-            </view>
-          </view>
-          <view class="cu-form-group margin-left margin-right radius">
-            <view class="grid col-4 grid-square flex-sub">
-              <view class="padding-xs bg-img" style="background-image:url({{imgList[index]}})" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
-                <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
-                  <text class="icon-close"></text>
-                </view>
-              </view>
-              <view class="padding-xs solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
-                <text class="icon-cameraadd"></text>
-              </view>
-            </view>
-          </view>
-          <view class="margin-left margin-right radius">
-            <view class="cu-form-group ">
-              <textarea data-placeholder="详细描述" maxlength="-1" placeholder-class="placeholder" class="{{textareaAValue?'value':''}}" bindinput="textareaAInput"></textarea>
-            </view>
 
-          </view>
-          <view>
-            <view class="cu-form-group margin-left margin-right radius">
-              <text class="icon-locationfill text-orange"></text>
-              <view class="title">物品状态</view>
-              <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}" >
-                <view class="picker">
-                  {{index?picker[index]:'请选择'}}
-                </view>
-              </picker>
-            </view>
-            <view class="cu-form-group margin-left margin-right radius">
-              <text class="icon-locationfill text-orange"></text>
-              <view class="title">物品名称</view>
-              <input placeholder="输入框带个图标"></input>
-            </view>
-            <view class="cu-form-group margin-left margin-right">
-              <text class="icon-locationfill text-orange"></text>
-              <view class="title">丢失地点</view>
-              <input placeholder="大概丢失位置"></input>
-            </view>
-            <view class="cu-form-group margin-left margin-right">
-              <text class="icon-locationfill text-orange"></text>
-              <view class="title">日期选择</view>
-              <picker mode="date" value="{{date}}" start="2020-01-01" end="2020-09-01" bindchange="DateChange">
-                <view class="picker">
-                  {{date}}
-                </view>
-              </picker>
-            </view>
-
-
-            <view class="cu-form-group margin-left margin-right radius">
-              <text class="icon-locationfill text-orange"></text>
-              <view class="title">时间选择</view>
-              <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="TimeChange">
-                <view class="picker">
-                  {{time}}
-                </view>
-              </picker>
-            </view>
-
-            <view class="cu-form-group  margin-left margin-right margin-bottom radius">
-              <text class="icon-locationfill text-orange"></text>
-              <view class="title">手机号码</view>
-              <input placeholder="常用手机号"></input>
-              <view class="cu-capsule radius">
-                <view class="cu-tag bg-blue radius">
-                  +86
-                </view>
-              </view>
-            </view>
-          </view>
-
-
-        </view>
-      </scroll-view>
-    </view>
-
-
-
-  </view>
+  </form>
 </view>
 
-<view class="cu-bar tabbar  bg-black foot">
+<!-- <view class="cu-bar tabbar  bg-black foot ">
   <view class="action text-gray">
-    <view class="icon-homefill"></view> WAETD
-  </view>
-  <view class="action text-gray">
+    <view class="fr">
+      <view class="icon-homefill"></view> WAETD
+    </view>
+  </view> -->
+
+<!-- <view class="action text-gray">
     <view class="icon-similar"></view> 工具
-  </view>
-  <view class="action text-gray add-action">
+  </view> -->
+<!-- <view class="action text-gray add-action">
     <button class="cu-btn icon-add bg-green shadow" bindtap="showModal"></button>
     发布
-  </view>
+  </view> -->
 
-  <view class="action text-gray">
+<!-- <view class="action text-gray">
     <view class="icon-file">
       <view class="cu-tag badge">99</view>
     </view>
     资源
-  </view>
-  <view class="action text-gray">
-    <view class="icon-my">
-      <view class="cu-tag badge"></view>
+  </view> -->
+<!-- <view class="action text-gray ">
+    <view class="fl">
+      <view class="icon-my">
+        <view class="cu-tag badge"></view>
+      </view>
+      我的
     </view>
-    我的
-  </view>
-</view>
+  </view> -->
+<!-- </view> -->

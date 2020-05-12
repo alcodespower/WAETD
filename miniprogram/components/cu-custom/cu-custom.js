@@ -79,6 +79,11 @@ Component({
       this.triggerEvent('myevent', {
         isshow: "true"
       });
+    },
+    showModal: function () {
+      this.triggerEvent('showModal', {
+        modalName: 'bottomModal'
+      });
     }
 
   }
